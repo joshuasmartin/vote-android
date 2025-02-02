@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Vote With Your Wallet</string>
+    <string name="title_add">Add</string>
+    <string name="title_retailers">Retailers</string>
+    <string name="title_brands">Brands</string>
+    <string name="title_suggest">Suggest</string>
+    <string name="title_suggest_long">Suggestion</string>
+    <string name="title_suggest_score">Suggest a Score</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="topic_diversity">DEI</string>
+    <string name="topic_environment">Environment</string>
+    <string name="topic_unions">Unions</string>
+    <string name="topic_politics">Politics</string>
+    <string name="add_description">We need your help to fill out this database. Suggest another retailer or brand you think belongs here.</string>
+
+
+    <string name="title_dei">Diversity, Equity, and Inclusion</string>
+    <string name="title_environment">Environmental Stewardship and Responsibility</string>
+    <string name="title_unions">Unions and Labor Protections</string>
+    <string name="title_politics">Lobbying and Political Spending</string>
+
+    <string name="scores_title_positive">Positive Score</string>
+    <string name="scores_title_neutral">Neutral Score</string>
+    <string name="scores_title_negative">Negative Score</string>
+
+    <string name="suggest_form_name">Name of the Retailer or Brand</string>
+    <string name="suggest_form_user_name">Your Name</string>
+    <string name="suggest_form_email_address">Email Address</string>
+    <string name="suggest_help_1">What are you suggesting we add?</string>
+    <string name="suggest_form_send">Send</string>
+</resources>

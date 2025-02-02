@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_retailers"
+        android:icon="@drawable/storefront_24px"
+        android:title="@string/title_retailers" />
+
+    <item
+        android:id="@+id/navigation_brands"
+        android:icon="@drawable/box_24px"
+        android:title="@string/title_brands" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/post_add_24px"
+        android:title="@string/title_suggest" />
+
+</menu>

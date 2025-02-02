@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_retailers">
+
+    <fragment
+        android:id="@+id/navigation_retailers"
+        android:name="app.withyourwallet.vote.android.ui.retailers.RetailersFragment"
+        android:label="@string/title_retailers"
+        tools:layout="@layout/fragment_retailers">
+        <action
+            android:id="@+id/action_retailersFragment_to_detailsFragment"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_brands"
+        android:name="app.withyourwallet.vote.android.ui.brands.BrandsFragment"
+        android:label="@string/title_brands"
+        tools:layout="@layout/fragment_brands">
+        <action
+            android:id="@+id/action_brandsFragment_to_detailsFragment"
+            app:destination="@id/navigation_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="app.withyourwallet.vote.android.ui.details.DetailsFragment"
+        android:label="@string/title_brands"
+        tools:layout="@layout/fragment_details" />
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="app.withyourwallet.vote.android.ui.add.AddFragment"
+        android:label="@string/title_suggest_long"
+        tools:layout="@layout/fragment_add" />
+</navigation>
