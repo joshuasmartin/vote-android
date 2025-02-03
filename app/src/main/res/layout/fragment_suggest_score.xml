@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.add.SuggestScoreFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup android:id="@+id/radio_group_score_topic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+            <RadioButton android:id="@+id/radio_topic_dei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/topic_diversity"
+                android:layout_marginEnd="20dp"
+                android:textSize="18sp" />
+            <RadioButton android:id="@+id/radio_topic_environment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/topic_environment"
+                android:layout_marginEnd="20dp"
+                android:textSize="18sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:id="@+id/radio_topic_unions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/topic_unions"
+                android:layout_marginEnd="20dp"
+                android:textSize="18sp" />
+            <RadioButton android:id="@+id/radio_topic_politics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/topic_politics"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <RadioGroup android:id="@+id/radio_group_score_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+            <RadioButton android:id="@+id/radio_number_positive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/suggest_score_form_positive"
+                android:textSize="18sp" />
+            <RadioButton android:id="@+id/radio_number_negative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/suggest_score_form_negative"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/suggest_score_form_headline"
+            android:hint="@string/suggest_score_form_headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="30dp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/suggest_score_form_source"
+            android:hint="@string/suggest_score_form_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="20dp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/suggest_form_user_name"
+            android:hint="@string/suggest_form_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="30dp"
+            android:inputType="text"
+            android:autofillHints="name" />
+
+        <EditText
+            android:id="@+id/suggest_form_email_address"
+            android:hint="@string/suggest_form_email_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:autofillHints="emailAddress" />
+
+        <Button
+            android:id="@+id/button_suggest_score_send"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/wallet_dark_blue"
+            android:textSize="18sp"
+            android:text="@string/suggest_form_send" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

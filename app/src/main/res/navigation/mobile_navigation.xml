@@ -29,11 +29,21 @@
         android:id="@+id/navigation_details"
         android:name="app.withyourwallet.vote.android.ui.details.DetailsFragment"
         android:label="@string/title_brands"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_suggestScoreFragment"
+            app:destination="@id/navigation_suggest_score" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_add"
         android:name="app.withyourwallet.vote.android.ui.add.AddFragment"
         android:label="@string/title_suggest_long"
         tools:layout="@layout/fragment_add" />
+
+    <fragment
+        android:id="@+id/navigation_suggest_score"
+        android:name="app.withyourwallet.vote.android.ui.add.SuggestScoreFragment"
+        android:label="@string/title_suggest_long"
+        tools:layout="@layout/fragment_suggest_score" />
 </navigation>

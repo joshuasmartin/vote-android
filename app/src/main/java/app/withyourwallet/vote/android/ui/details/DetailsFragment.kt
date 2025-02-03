@@ -7,10 +7,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.withyourwallet.vote.android.R
@@ -49,6 +52,13 @@ class DetailsFragment : Fragment() {
         val root: View = binding.root
 
         subjectId = arguments?.getInt("subjectId")
+
+        val buttonSuggestScoreSend: Button = binding.buttonSuggestScore
+        buttonSuggestScoreSend.setOnClickListener {
+            // Navigate to the suggest score fragment
+            val bundle = bundleOf("subjectId" to subjectId)
+            findNavController().navigate(R.id.action_detailsFragment_to_suggestScoreFragment, bundle)
+        }
 
         thread(start = true) {
             loadSubject()

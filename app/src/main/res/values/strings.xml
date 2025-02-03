@@ -31,4 +31,9 @@
     <string name="suggest_form_email_address">Email Address</string>
     <string name="suggest_help_1">What are you suggesting we add?</string>
     <string name="suggest_form_send">Send</string>
+
+    <string name="suggest_score_form_positive">Positive</string>
+    <string name="suggest_score_form_negative">Negative</string>
+    <string name="suggest_score_form_headline">Headline or Short Summary</string>
+    <string name="suggest_score_form_source">Source URL (to prove your score)</string>
 </resources>
