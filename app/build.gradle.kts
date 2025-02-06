@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "app.withyourwallet.vote.android"
+    namespace = "app.withyourwallet.vote"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "app.withyourwallet.vote.android"
+        applicationId = "app.withyourwallet.vote"
         minSdk = 31
         targetSdk = 35
         versionCode = 1

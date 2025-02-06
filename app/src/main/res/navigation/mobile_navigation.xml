@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_retailers"
-        android:name="app.withyourwallet.vote.android.ui.retailers.RetailersFragment"
+        android:name="app.withyourwallet.vote.ui.retailers.RetailersFragment"
         android:label="@string/title_retailers"
         tools:layout="@layout/fragment_retailers">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_brands"
-        android:name="app.withyourwallet.vote.android.ui.brands.BrandsFragment"
+        android:name="app.withyourwallet.vote.ui.brands.BrandsFragment"
         android:label="@string/title_brands"
         tools:layout="@layout/fragment_brands">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/navigation_details"
-        android:name="app.withyourwallet.vote.android.ui.details.DetailsFragment"
+        android:name="app.withyourwallet.vote.ui.details.DetailsFragment"
         android:label="@string/title_brands"
         tools:layout="@layout/fragment_details">
         <action
@@ -37,13 +37,13 @@
 
     <fragment
         android:id="@+id/navigation_add"
-        android:name="app.withyourwallet.vote.android.ui.add.AddFragment"
+        android:name="app.withyourwallet.vote.ui.add.AddFragment"
         android:label="@string/title_suggest_long"
         tools:layout="@layout/fragment_add" />
 
     <fragment
         android:id="@+id/navigation_suggest_score"
-        android:name="app.withyourwallet.vote.android.ui.add.SuggestScoreFragment"
+        android:name="app.withyourwallet.vote.ui.add.SuggestScoreFragment"
         android:label="@string/title_suggest_long"
         tools:layout="@layout/fragment_suggest_score" />
 </navigation>
