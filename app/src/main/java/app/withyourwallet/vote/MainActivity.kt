@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-//        supportActionBar?.hide()
-
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.nav_host_fragment_activity_main
         ) as NavHostFragment

@@ -65,9 +65,6 @@ class DetailsFragment : Fragment() {
             loadDiversityScores()
         }
 
-        val textViewSubjectName: TextView = binding.textViewSubjectName
-        textViewSubjectName.text = arguments?.getInt("subjectId").toString()
-
         val emptyScores = mutableListOf<Score>()
 
         val diversityScoreAdapter = ScoreAdapter({ score -> adapterOnClick(score) }, emptyScores)
