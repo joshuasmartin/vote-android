@@ -16,6 +16,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="vertical">
 
+        <ProgressBar
+            android:layout_weight="1"
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="10dp"
+            android:minWidth="10dp"
+            android:layout_gravity="center" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/my_recycler_view"
             android:clipToPadding="false"

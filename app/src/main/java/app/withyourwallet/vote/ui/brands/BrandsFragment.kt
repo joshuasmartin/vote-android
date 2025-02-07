@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -29,22 +30,19 @@ class BrandsFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        (activity as AppCompatActivity).supportActionBar?.hide()
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        (activity as AppCompatActivity).supportActionBar?.hide()
-
         _binding = FragmentBrandsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        // Show the loading indicator.
+        val progressBar: ProgressBar = binding.progressBar
+        progressBar.visibility = View.VISIBLE
+
+        // Prepare the recycler view for an empty list.
         val emptySubjects = arrayOfNulls<Subject>(0)
         val customAdapter = CustomAdapter({ subject -> adapterOnClick(subject) }, emptySubjects)
 
@@ -52,6 +50,7 @@ class BrandsFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = customAdapter
 
+        // Load the subjects from the server.
         thread(start = true) {
             loadBrands()
         }
@@ -95,20 +94,31 @@ class BrandsFragment : Fragment() {
 
                         val recyclerView: RecyclerView = binding.myRecyclerView
                         recyclerView.adapter = customAdapter
+
+                        // Hide the loading indicator.
+                        val progressBar: ProgressBar = binding.progressBar
+                        progressBar.visibility = View.GONE
                     }
 
                 } catch (e: JSONException) {
-                    print(e.toString())
-//                    activity?.runOnUiThread {
+                    activity?.runOnUiThread {
+
+                        // Hide the loading indicator.
+                        val progressBar: ProgressBar = binding.progressBar
+                        progressBar.visibility = View.GONE
+
 //                        progressDialog?.dismiss()
 //                        Log.w(TAG, "Could not understand time zone response")
 //                        Log.w(TAG, response.toString())
 //                        showDialog("Could not understand the response from the server, please try again.")
-//                    }
+                    }
                 }
-            }, { e ->
-                print(e.toString())
-//                activity?.runOnUiThread {
+            }, { _ ->
+                activity?.runOnUiThread {
+
+                    // Hide the loading indicator.
+                    val progressBar: ProgressBar = binding.progressBar
+                    progressBar.visibility = View.GONE
 //                    val response = error.networkResponse
 //                    when (response.statusCode) {
 //                        else -> {
@@ -116,7 +126,7 @@ class BrandsFragment : Fragment() {
 //                            showDialog("Could not reach the server, please try again.")
 //                        }
 //                    }
-//                }
+                }
             }) {
             override fun getHeaders(): Map<String, String> {
                 return HashMap()

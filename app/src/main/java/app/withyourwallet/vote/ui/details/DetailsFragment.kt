@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -43,15 +44,14 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        (activity as AppCompatActivity).supportActionBar?.show()
-
-        val detailsViewModel =
-            ViewModelProvider(this).get(DetailsViewModel::class.java)
-
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         subjectId = arguments?.getInt("subjectId")
+
+        // Show the loading indicator.
+        val progressBar: ProgressBar = binding.progressBar
+        progressBar.visibility = View.VISIBLE
 
         val buttonSuggestScoreSend: Button = binding.buttonSuggestScore
         buttonSuggestScoreSend.setOnClickListener {
@@ -60,11 +60,7 @@ class DetailsFragment : Fragment() {
             findNavController().navigate(R.id.action_detailsFragment_to_suggestScoreFragment, bundle)
         }
 
-        thread(start = true) {
-            loadSubject()
-            loadDiversityScores()
-        }
-
+        // Prepare the recycler views for an empty list.
         val emptyScores = mutableListOf<Score>()
 
         val diversityScoreAdapter = ScoreAdapter({ score -> adapterOnClick(score) }, emptyScores)
@@ -87,17 +83,17 @@ class DetailsFragment : Fragment() {
         politicsRecyclerView.layoutManager = LinearLayoutManager(activity)
         politicsRecyclerView.adapter = politicsScoreAdapter
 
-//        val textViewSubjectName: TextView = binding.textViewSubjectName
-//        detailsViewModel.text.observe(viewLifecycleOwner) {
-//            textViewSubjectName.text = it
-//        }
+        // Load the subject details from the server.
+        thread(start = true) {
+            loadSubject()
+            loadDiversityScores()
+        }
 
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-//        (activity as AppCompatActivity).supportActionBar?.hide()
         _binding = null
     }
 
@@ -138,20 +134,31 @@ class DetailsFragment : Fragment() {
                         configureImage(subject.environmentalScore, imageViewEnvironmentalScore)
                         configureImage(subject.unionsScore, imageViewUnionScore)
                         configureImage(subject.lobbyingScore, imageViewPoliticsScore)
+
+                        // Hide the loading indicator.
+                        val progressBar: ProgressBar = binding.progressBar
+                        progressBar.visibility = View.GONE
                     }
 
                 } catch (e: JSONException) {
-                    print(e.toString())
-//                    activity?.runOnUiThread {
+                    activity?.runOnUiThread {
+
+                        // Hide the loading indicator.
+                        val progressBar: ProgressBar = binding.progressBar
+                        progressBar.visibility = View.GONE
+
 //                        progressDialog?.dismiss()
 //                        Log.w(TAG, "Could not understand time zone response")
 //                        Log.w(TAG, response.toString())
 //                        showDialog("Could not understand the response from the server, please try again.")
-//                    }
+                    }
                 }
-            }, { e ->
-                print(e.toString())
-//                activity?.runOnUiThread {
+            }, { _ ->
+                activity?.runOnUiThread {
+
+                    // Hide the loading indicator.
+                    val progressBar: ProgressBar = binding.progressBar
+                    progressBar.visibility = View.GONE
 //                    val response = error.networkResponse
 //                    when (response.statusCode) {
 //                        else -> {
@@ -159,7 +166,7 @@ class DetailsFragment : Fragment() {
 //                            showDialog("Could not reach the server, please try again.")
 //                        }
 //                    }
-//                }
+                }
             }) {
             override fun getHeaders(): Map<String, String> {
                 return HashMap()
